@@ -15,7 +15,6 @@ export default function AuthLayout({
   children: React.ReactNode
 }>) {
   const pathname = usePathname()
-  console.log(123, pathname)
 
   return (
     <div className="bg-green-200">
