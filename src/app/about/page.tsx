@@ -10,6 +10,8 @@ export default function AboutPage() {
     <>
       <h1>Страница о компании</h1>
       <Link href="/">На главную</Link>
+      <br />
+      <Link href="/contacts">Контакты</Link>
     </>
   )
 }
