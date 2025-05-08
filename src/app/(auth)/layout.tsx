@@ -26,7 +26,9 @@ export default function AuthLayout({
             <Link
               key={link.name}
               href={link.href}
-              className={isActive ? 'underline text-red-600' : 'text-blue-100'}
+              className={`ml-5 ${
+                isActive ? 'underline text-red-600' : 'text-blue-100'
+              }`}
             >
               {link.name}
             </Link>

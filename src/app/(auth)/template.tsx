@@ -10,7 +10,7 @@ export default function AuthTemplate({
   const [input, setInput] = useState('')
 
   return (
-    <div className="bg-green-200">
+    <div className="bg-green-200 ml-5">
       <div>{children}</div>
       <div className="">
         <input
