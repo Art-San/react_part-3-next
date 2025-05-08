@@ -34,6 +34,7 @@ export const generateMetadata = async ({
 }
 
 export default async function PostPage({ params }: Props) {
+  await new Promise((resolve) => setInterval(resolve, 3000))
   const { postId } = await params
 
   const post = await getPost(postId)

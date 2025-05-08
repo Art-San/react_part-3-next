@@ -1,4 +1,6 @@
-import { notFound } from 'next/navigation'
+function getRandomInt(count: number) {
+  return Math.floor(Math.random() * count)
+}
 
 export default async function ProductReview({
   params
@@ -7,10 +9,12 @@ export default async function ProductReview({
 }) {
   const { productId, reviewId } = await params
 
-  if (parseInt(reviewId) > 1000) {
-    console.log(123, 'notFound')
-    notFound()
+  const random = getRandomInt(2)
+
+  if (random === 1) {
+    throw new Error('Ошибка загрузки ответа')
   }
+
   return (
     <h1>
       Отзыв {reviewId} на продукт {productId}
