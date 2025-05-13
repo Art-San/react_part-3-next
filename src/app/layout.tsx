@@ -34,13 +34,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
+        {/* <Header />
         <ErrorWrapper>{children}</ErrorWrapper>
-        <Footer />
+        <Footer /> */}
+        <header className="bg-blue-300">Шапка сайта</header>
+        <main className="flex-grow">{children}</main>
+        <footer className="bg-gray-400">Подвал сайта</footer>
       </body>
     </html>
   )
