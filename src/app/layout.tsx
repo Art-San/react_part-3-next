@@ -41,9 +41,13 @@ export default function RootLayout({
         {/* <Header />
         <ErrorWrapper>{children}</ErrorWrapper>
         <Footer /> */}
-        <header className="bg-blue-300">Шапка сайта</header>
+        <header className="bg-blue-300 ">
+          <div className="ml-12">Шапка сайта</div>
+        </header>
         <main className="flex-grow">{children}</main>
-        <footer className="bg-gray-400">Подвал сайта</footer>
+        <footer className="bg-gray-400">
+          <div className="ml-12">Подвал сайта</div>
+        </footer>
       </body>
     </html>
   )

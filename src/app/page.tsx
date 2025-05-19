@@ -21,28 +21,30 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="text-xl font-bold mb-4">Комментарии</h1>
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Поиск"
-        className="border-1"
-      />
-      <input
-        type="number"
-        value={limit}
-        onChange={(e) => setLimit(Number(e.target.value))}
-        placeholder="лимит"
-        className="border-1"
-        min={1}
-      />
-      <ul>
-        {comments.map((comment) => (
-          <li key={comment.id}>
-            {comment.id}z{comment.body}
-          </li>
-        ))}
-      </ul>
+      <div className="ml-12 mr-12">
+        <h1 className="text-xl font-bold mb-4">Комментарии</h1>
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Поиск"
+          className="border-1"
+        />
+        <input
+          type="number"
+          value={limit}
+          onChange={(e) => setLimit(Number(e.target.value))}
+          placeholder="лимит"
+          className="border-1"
+          min={1}
+        />
+        <ul>
+          {comments.map((comment) => (
+            <li key={comment.id}>
+              {comment.id}z{comment.body}
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
