@@ -1,34 +1,38 @@
-const API_URL = 'https://67b41ad7392f4aa94fa956ee.mockapi.io/api/v1/comments'
+//import { comments } from "./data";
+import { NextRequest } from 'next/server'
 
-export async function GET() {
-  try {
-    const response = await fetch(API_URL)
-    if (!response.ok) throw new Error('Failed to fetch comments')
-    const comments = await response.json()
-    return Response.json(comments)
-  } catch {
-    return new Response(null, { status: 500 })
-  }
+const API_URL = 'https://jsonplaceholder.typicode.com/comments'
+
+type Comment = {
+  postId: number
+  id: number
+  name: string
+  email: string
+  body: string
 }
 
-export async function POST(request: Request) {
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams
+
+  console.log(14, searchParams.get('query'))
+  console.log(15, searchParams.get('limit'))
+
+  const query = searchParams.get('query') || ''
+  const limit = Number(searchParams.get('limit')) || 10
+
   try {
-    const { text } = await request.json()
+    const response = await fetch(API_URL)
 
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text })
-    })
+    let comments: Comment[] = await response.json()
 
-    console.log(333, response)
-    if (!response.ok) throw new Error('Failed to create comment')
-    const newComment = await response.json()
-    return new Response(JSON.stringify(newComment), {
-      headers: { 'Content-Type': 'application/json' },
-      status: 201
-    })
+    if (query) {
+      comments = comments.filter((comment) =>
+        comment.body.toLowerCase().includes(query.toLowerCase())
+      )
+    }
+
+    return Response.json(comments.slice(0, limit))
   } catch {
-    return new Response(null, { status: 400 })
+    return Response.json([])
   }
 }
