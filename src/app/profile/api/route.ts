@@ -2,7 +2,8 @@ import { headers } from 'next/headers'
 export async function GET() {
   const headerList = headers()
   const acceptHeader = (await headerList).get('Accept')
-  console.log(123, acceptHeader)
+
+  console.log(1236, acceptHeader)
   const userData = {
     name: 'Иван Иванов',
     email: 'ivan@example.com',
@@ -13,7 +14,7 @@ export async function GET() {
     return new Response(JSON.stringify(userData), {
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
-        Server: 'Next.js-15'
+        Server: 'Next.js-15-json'
       }
     })
   }
@@ -28,7 +29,7 @@ export async function GET() {
     {
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
-        Server: 'Next.js-15'
+        Server: 'Next.js-15-HTML'
       }
     }
   )
