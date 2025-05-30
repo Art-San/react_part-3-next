@@ -1,5 +1,3 @@
-function HelloPage() {
-  return <div>HelloPage</div>
+export default function Hello() {
+  return <h1>Привет!</h1>
 }
-
-export default HelloPage
