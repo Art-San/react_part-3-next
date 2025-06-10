@@ -9,7 +9,7 @@ type Post = {
 }
 
 export default async function PostsSequential() {
-  await new Promise((resolve) => setTimeout(resolve, 3000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
 
   // 1. Загружаем посты
   const postsResponse = await fetch(

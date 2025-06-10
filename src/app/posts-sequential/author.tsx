@@ -5,7 +5,7 @@ type Author = {
 
 export async function Author({ userId }: { userId: number }) {
   // Искусственная задержка для демо
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 5000))
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${userId}`
   )
