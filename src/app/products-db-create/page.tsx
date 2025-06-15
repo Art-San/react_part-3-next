@@ -1,13 +1,17 @@
 'use client'
 
-import { createProduct, FormState } from '@/actions/products'
-// import { Submit } from '@/components/submitBtn'
-
+//import { Submit } from "@/components/submitBtn";
+import { FormState, createProduct } from '@/actions/products'
 import { useActionState } from 'react'
 
 export default function AddProductPage() {
   const initialState: FormState = {
-    errors: {}
+    errors: {},
+    values: {
+      title: '',
+      price: '',
+      description: ''
+    }
   }
 
   const [state, formAction, isPending] = useActionState(
