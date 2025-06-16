@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Search } from '@/components/search'
 
 export default function Home() {
   return (
@@ -6,9 +6,7 @@ export default function Home() {
       <main>
         <div className="">
           <h1>Главная</h1>
-          <Link href={'/products-db'}>
-            <p>Страница с продуктами</p>
-          </Link>
+          <Search />
         </div>
       </main>
     </>
