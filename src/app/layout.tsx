@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Oswald } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
+const loveFont = Oswald({
   variable: '--font-geist-sans',
-  subsets: ['latin']
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin']
+  subsets: ['cyrillic'],
+  weight: ['400', '200']
 })
 
 export const metadata: Metadata = {
@@ -28,7 +24,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased max-h-screen flex flex-col bg-gray-50 dark:bg-gray-800 dark:text-white`}
+        className={`${loveFont.className} antialiased max-h-screen flex flex-col bg-gray-50 dark:bg-gray-800 dark:text-white`}
       >
         <main className="p-8">{children}</main>
       </body>
